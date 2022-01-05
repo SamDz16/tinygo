@@ -1,12 +1,17 @@
 package main
 
 import (
+	"fmt"
 	"strings"
 )
 
 // Declare a main function, this is the entrypoint into our go module
 // That will be run. In our example, we won't need this
-func main() {}
+func main() {
+	fmt.Println(StringToIntArray("hello, world!"))
+
+	fmt.Println(IntArrayToString(StringToIntArray("hello, world!")))
+}
 
 // This exports an add function.
 // It takes in two 32-bit integer values
@@ -20,7 +25,7 @@ func add(x int, y int) int {
 
 var alphabet = "abcdefghijklmnopqrstuvwxyz,! "
 
-func IntToArrayString(tab []int) string {
+func IntArrayToString(tab []int) string {
 	var str string
 
 	for i := 0; i < len(tab); i++ {
@@ -31,10 +36,10 @@ func IntToArrayString(tab []int) string {
 
 func StringToIntArray(str string) []int {
 
-	var tab [100]int
+	tab := []int{}
 
 	for i := 0; i < len(str); i++ {
-		tab[i] = strings.Index(alphabet, str[i:i+1])
+		tab = append(tab, strings.Index(alphabet, str[i:i+1]))
 	}
 
 	return tab[:]
@@ -48,6 +53,5 @@ func StringToIntArray(str string) []int {
 
 //export hello
 func hello(char int) int {
-
-	return char
+	return 1
 }
