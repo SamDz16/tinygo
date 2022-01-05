@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World - Go</title>
+  </head>
+  <body>
+
+    <h1>TinyGO et WebAssembly</h1>
+    <h2><em>Exemple1: ADD function</em></h2>
+   <form id="ex1" action="">
+       <label for="number1">Enter your first number</label> <br> 
+       <input type="text" id="number1" placeholder="first number"> <br> <br>
+       <label for="number2">Enter your second number</label> <br> 
+       <input type="text" id="number2" placeholder="second number"> <br> <br>
+       <button type="submit" id="btn">Add</button>
+   </form>
+   <p>The result is: <b><span id="result"></span></b></p>
+
+   <hr>
+
+   <h2><em>Exemple2: Hello World!</em></h2>
+   <form id="ex2" action="">
+     <label for="userInput">Enter your string</label> <br>
+     <input id="userInput" type="text" placeholder="your string"> <br> <br>
+     <button type="submit">Capitalize</button>
+   </form>
+   <p>The string you entered capitalized is: <span id="capitalized"></span></p>
+    <!-- 
+    The wasm_exec.js must come before our Javascript (index.js), 
+    as it defines some global objects 
+    -->
+    <script src="./wasm_exec.js"></script>
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>
